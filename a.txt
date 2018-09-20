@@ -1,0 +1,51 @@
+set nocompatible " be not compatible with Vi
+set number " show line number
+set ruler " show ruler
+
+syntax enable " syntax highlight
+
+set background=dark " background color
+
+" set the following options for supporting PEP8 style
+set tabstop=4 " a <Tab> equal how much space
+set softtabstop=4 " for coincendence of <Tab> and space indent
+set shiftwidth=4 " one indent equal how much space
+set textwidth=79 " one line have 79 characters most
+set expandtab " translate <Tab> to <Space>
+set autoindent " automatic indent
+set fileformat=unix " save file with unix format
+
+set showmatch " show paired parentheses
+
+set laststatus=3 " set the command lines three
+
+set incsearch " just-in-time search
+set hlsearch " search highlight
+
+set cursorline " highlight current line
+set cursorcolumn " highlight current column
+
+noremap <C-H> <C-W><C-H>
+noremap <C-J> <C-W><C-J>
+noremap <C-K> <C-W><C-K>
+noremap <C-L> <C-W><C-L>
+
+" Enable folding
+set foldmethod=indent
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
+
+filetype off " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" Add all your plugins here (note older versions of Vundle used Bundle instead
+" of Plugin)
+" All of your Plugins must be added before the following line
+call vundle#end() " required
+filetype plugin indent on " required
+
+au BufRead,BufNewFile *.py,*.pyc,*.c,*.h match BadWhitespace /\s\+$/
